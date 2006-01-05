@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
+<package>
+  <name>ncurses</name>
+  <summary>ncurses extenion</summary>
+  <description>
+   http://www.gnu.org/software/ncurses/ncurses.html
+  </description>
+  <license>PHP</license>
+  <configureoptions>
+   <configureoption name="with-ncurses" default="autodetect" prompt="ncurses installation directory?" />
+  </configureoptions>
+
+  <maintainers>
+    <maintainer>
+      <user>hholzgra</user>
+      <name>Hartmut Holzgraefe</name>
+      <email>hartmut@php.net</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <!-- Ilia Alshanetsky, Wez Furlong, Hartmut Holzgraefe, Georg Richter -->
+
+  <release>
+    <version>0.9</version>
+    <date>2006-01-04</date>
+    <state>beta</state>
+    <notes>
+    - first experimental draft
+    </notes>
+  </release>
+
+  <filelist>
+    <dir role="doc" name="/">
+      <file role="doc">CREDITS</file>
+      <file role="src">config.m4</file>
+      <file role="src">ncurses.c</file>
+      <file role="src">php_ncurses.h</file>
+      <file role="src">ncurses_fe.c</file>
+      <file role="src">php_ncurses_fe.h</file>
+      <file role="src">ncurses_functions.c</file>
+    </dir>
+  </filelist>
+</package>
