@@ -25,26 +25,43 @@
 #include "php_ini.h"
 #include "php_ncurses.h"
 
-static 
-	ZEND_BEGIN_ARG_INFO(firstandsecond_args_force_ref, 0)
-		ZEND_ARG_PASS_INFO(1)
-		ZEND_ARG_PASS_INFO(1)
-	ZEND_END_ARG_INFO();
+#if (PHP_MAJOR_VERSION == 5 && PHP_MINOR_VERSION > 2) || PHP_MAJOR_VERSION > 5
+# define NCURSES_ARGINFO
+#else
+# define NCURSES_ARGINFO static
+#endif
 
-static
-	ZEND_BEGIN_ARG_INFO(secondandthird_args_force_ref, 0)
-		ZEND_ARG_PASS_INFO(0)
-		ZEND_ARG_PASS_INFO(1)
-		ZEND_ARG_PASS_INFO(1)
-	ZEND_END_ARG_INFO();
+NCURSES_ARGINFO
+ZEND_BEGIN_ARG_INFO(firstandsecond_args_force_ref, 0)
+	ZEND_ARG_PASS_INFO(1)
+	ZEND_ARG_PASS_INFO(1)
+ZEND_END_ARG_INFO();
 
-static 
-	ZEND_BEGIN_ARG_INFO(second_thru_fourth_args_force_ref, 0)
-		ZEND_ARG_PASS_INFO(0)
-		ZEND_ARG_PASS_INFO(1)
-		ZEND_ARG_PASS_INFO(1)
-		ZEND_ARG_PASS_INFO(1)
-	ZEND_END_ARG_INFO();
+NCURSES_ARGINFO
+ZEND_BEGIN_ARG_INFO(secondandthird_args_force_ref, 0)
+	ZEND_ARG_PASS_INFO(0)
+	ZEND_ARG_PASS_INFO(1)
+	ZEND_ARG_PASS_INFO(1)
+ZEND_END_ARG_INFO();
+
+NCURSES_ARGINFO
+ZEND_BEGIN_ARG_INFO(second_thru_fourth_args_force_ref, 0)
+	ZEND_ARG_PASS_INFO(0)
+	ZEND_ARG_PASS_INFO(1)
+	ZEND_ARG_PASS_INFO(1)
+	ZEND_ARG_PASS_INFO(1)
+ZEND_END_ARG_INFO();
+
+NCURSES_ARGINFO
+ZEND_BEGIN_ARG_INFO(first_arg_force_ref, 0)
+	ZEND_ARG_PASS_INFO(1)
+ZEND_END_ARG_INFO();
+
+NCURSES_ARGINFO
+ZEND_BEGIN_ARG_INFO(second_arg_force_ref, 0)
+	ZEND_ARG_PASS_INFO(0)
+	ZEND_ARG_PASS_INFO(1)
+ZEND_END_ARG_INFO();
 
 /* ncurses_functions[]
  *
