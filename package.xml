@@ -1,36 +1,12 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE package SYSTEM "../pear/package.dtd">
-<package>
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
  <name>ncurses</name>
+ <channel>pecl.php.net</channel>
  <summary>Terminal screen handling and optimization package</summary>
- <maintainers>
-  <maintainer>
-   <user>hholzgra</user>
-   <name>Hartmut Holzgraefe</name>
-   <email>hartmut@php.net</email>
-   <role>lead</role>
-  </maintainer>
-  <maintainer>
-   <user>georg</user>
-   <name>Georg Richter</name>
-   <role>developer</role>
-   <email>georg@php.net</email>
-  </maintainer>
-  <maintainer>
-   <user>iliaa</user>
-   <name>Ilia Alshanetsky</name>
-   <role>developer</role>
-   <email>iliaa@php.net</email>
-  </maintainer>
-  <maintainer>
-   <user>wez</user>
-   <name>Wez Furlong</name>
-   <role>developer</role>
-   <email>wez@php.net</email>
-  </maintainer>
- </maintainers>
- <description>
-ncurses (new curses) is a free software emulation of curses in 
+ <description>ncurses (new curses) is a free software emulation of curses in 
 System V Rel 4.0 (and above). It uses terminfo format, supports 
 pads, colors, multiple highlights, form characters and function 
 key mapping. Because of the interactive nature of this library, 
@@ -39,36 +15,74 @@ be useful when writing scripts meant using PHP from the command
 line.
 
 See also http://www.gnu.org/software/ncurses/ncurses.html
+ 
  </description>
- <license>PHP</license>
- <release>
-  <state>stable</state>
-  <version>1.0.0</version>
-  <date>2006-01-05</date>
-  <notes>
+ <lead>
+  <name>Hartmut Holzgraefe</name>
+  <user>hholzgra</user>
+  <email>hartmut@php.net</email>
+  <active>yes</active>
+ </lead>
+ <developer>
+  <name>Georg Richter</name>
+  <user>georg</user>
+  <email>georg@php.net</email>
+  <active>yes</active>
+ </developer>
+ <developer>
+  <name>Ilia Alshanetsky</name>
+  <user>iliaa</user>
+  <email>iliaa@php.net</email>
+  <active>yes</active>
+ </developer>
+ <developer>
+  <name>Wez Furlong</name>
+  <user>wez</user>
+  <email>wez@php.net</email>
+  <active>yes</active>
+ </developer>
+ <date>2009-11-05</date>
+ <time>13:56:26</time>
+ <version>
+  <release>1.0.0</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP</license>
+ <notes>
 package.xml added to support intallation using pear installer
-  </notes>
-  <configureoptions>
-   <configureoption name="with-ncurses" default="autodetect" prompt="path to ncurses installation?"/>
-  </configureoptions>
-  <filelist>
-   <file role="doc" name="CREDITS"/>
-   <file role="doc" name="example1.php"/>
-   <file role="src" name="config.m4"/>
-   <file role="src" name="ncurses.c"/>
-   <file role="src" name="ncurses.php"/>
-   <file role="src" name="ncurses_fe.c"/>
-   <file role="src" name="ncurses_functions.c"/>
-   <file role="src" name="php_ncurses.h"/>
-   <file role="src" name="php_ncurses_fe.h"/>
-   <file role="test" name="tests/001.phpt"/>
-  </filelist>
-  <deps>
-   <dep type="php" rel="ge" version="5" />
-   <!-- doesn't work yet <dep type="os"  rel="has" name="unix"/> -->
-  </deps>
- </release>
+ </notes>
+ <contents>
+  <dir name="/">
+   <dir name="tests">
+    <file name="001.phpt" role="test" />
+   </dir> <!-- //tests -->
+   <file name="config.m4" role="src" />
+   <file name="CREDITS" role="doc" />
+   <file name="example1.php" role="doc" />
+   <file name="ncurses.c" role="src" />
+   <file name="ncurses.php" role="src" />
+   <file name="ncurses_fe.c" role="src" />
+   <file name="ncurses_functions.c" role="src" />
+   <file name="php_ncurses.h" role="src" />
+   <file name="php_ncurses_fe.h" role="src" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>ncurses</providesextension>
+ <extsrcrelease>
+  <configureoption default="autodetect" name="with-ncurses" prompt="path to ncurses installation?" />
+ </extsrcrelease>
 </package>
-<!--
-vim:et:ts=1:sw=1
--->
