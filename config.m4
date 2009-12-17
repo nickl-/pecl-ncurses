@@ -2,15 +2,35 @@ dnl
 dnl $Id$
 dnl
 
+AC_MSG_CHECKING(whether we should enable wide char support)
+AC_ARG_ENABLE(ncursesw,
+[  --enable-ncursesw   Enable wide char support ],
+[
+  PHP_NCURSESW=$enableval
+	AC_MSG_RESULT($enableval)
+], 
+[
+  PHP_NCURSESW=no
+	AC_MSG_RESULT(no)
+])
+
 PHP_ARG_WITH(ncurses, for ncurses support,
 [  --with-ncurses[=DIR]    Include ncurses support (CLI/CGI only)])
 
 if test "$PHP_NCURSES" != "no"; then
 
+   if test "$PHP_NCURSESW" != "no"; then
+     ncurses_name=ncursesw
+     panel_name=panelw
+   else
+     ncurses_name=ncurses
+     panel_name=panel
+   fi
+
    SEARCH_PATH="$PHP_NCURSES /usr/local /usr"     
 
    for dir in $SEARCH_PATH; do
-    for subdir in include/ncurses include; do
+    for subdir in include/$ncurses_name include; do
      if test -d $dir/$subdir; then
        if test -r $dir/$subdir/ncurses.h; then
          NCURSES_DIR=$dir
@@ -28,23 +48,23 @@ if test "$PHP_NCURSES" != "no"; then
   
    if test -z "$NCURSES_DIR"; then
      AC_MSG_RESULT(not found)
-     AC_MSG_ERROR(Please reinstall the ncurses distribution)
+     AC_MSG_ERROR(Please reinstall the $ncurses_name distribution)
    fi
 
    # --with-ncurses -> add include path
    PHP_ADD_INCLUDE($NCURSES_INCDIR)
 
-   # --with-ncurses -> chech for lib and symbol presence
-   LIBNAME=ncurses 
+   # --with-ncurses -> check for lib and symbol presence
+   LIBNAME=$ncurses_name 
    LIBSYMBOL=initscr 
 
    PHP_CHECK_LIBRARY($LIBNAME, $LIBSYMBOL, [
      AC_DEFINE(HAVE_NCURSESLIB,1,[ ])
      PHP_ADD_LIBRARY_WITH_PATH($LIBNAME, $NCURSES_DIR/$PHP_LIBDIR, NCURSES_SHARED_LIBADD)
 
-     PHP_CHECK_LIBRARY(panel, new_panel, [
+     PHP_CHECK_LIBRARY($panel_name, new_panel, [
        AC_DEFINE(HAVE_NCURSES_PANEL,1,[ ])
-       PHP_ADD_LIBRARY_WITH_PATH(panel, $NCURSES_DIR/$PHP_LIBDIR, NCURSES_SHARED_LIBADD)
+       PHP_ADD_LIBRARY_WITH_PATH($panel_name, $NCURSES_DIR/$PHP_LIBDIR, NCURSES_SHARED_LIBADD)
      ], [], [ 
        -L$NCURSES_DIR/$PHP_LIBDIR -l$LIBNAME -lm
      ])
