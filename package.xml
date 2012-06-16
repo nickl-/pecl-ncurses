@@ -50,7 +50,7 @@ See also http://www.gnu.org/software/ncurses/ncurses.html
  <date>2009-12-17</date>
  <time>11:00:00</time>
  <version>
-  <release>1.0.1</release>
+  <release>1.0.2</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -59,7 +59,8 @@ See also http://www.gnu.org/software/ncurses/ncurses.html
  </stability>
  <license uri="http://www.php.net/license">PHP</license>
  <notes>
-Add --enable-ncursesw configure switch for optional wide char support
+- Fixed build on PHP 5.3+
+- Fixed bug #60853 (Missing NCURSES_KEY_HOME constant)
  </notes>
  <contents>
   <dir name="/">
@@ -92,4 +93,21 @@ Add --enable-ncursesw configure switch for optional wide char support
   <configureoption default="autodetect" name="enable-ncursesw" prompt="enable support for wide chars?" />
   <configureoption default="autodetect" name="with-ncurses" prompt="path to ncurses installation?" />
  </extsrcrelease>
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2009-12-17</date>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Add --enable-ncursesw configure switch for optional wide char support
+   </notes>
+  </release>
+ </changelog>
 </package>

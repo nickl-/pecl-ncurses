@@ -19,6 +19,8 @@
 #ifndef PHP_NCURSES_H
 #define PHP_NCURSES_H
 
+#define PHP_NCURSES_VERSION "1.0.2"
+
 #ifdef HAVE_NCURSES_H
 # include <ncurses.h>
 #else

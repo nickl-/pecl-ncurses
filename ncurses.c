@@ -62,7 +62,7 @@ zend_module_entry ncurses_module_entry = {
 	NULL,
 	NULL,
 	PHP_MINFO(ncurses),
-	NO_VERSION_YET,
+	PHP_NCURSES_VERSION,
 	STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
